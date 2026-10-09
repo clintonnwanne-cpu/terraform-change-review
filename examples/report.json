@@ -1,0 +1,75 @@
+{
+  "coverage": {
+    "resources_in_plan": 5,
+    "skipped_resources": 1,
+    "supported_resources": 4
+  },
+  "plan_complete": true,
+  "results": [
+    {
+      "actions": [
+        "update"
+      ],
+      "address": "aws_cloudtrail.synthetic",
+      "after_matches_rule": false,
+      "after_unknown": false,
+      "before_matches_rule": true,
+      "message": "CloudTrail logging disabled",
+      "rule": "LOG001",
+      "sensitive_input_withheld": false,
+      "status": "resolved_by_plan"
+    },
+    {
+      "actions": [
+        "create"
+      ],
+      "address": "aws_iam_policy.synthetic",
+      "after_matches_rule": null,
+      "after_unknown": true,
+      "before_matches_rule": false,
+      "message": "Allow statement with Action=* and Resource=*",
+      "rule": "IAM001",
+      "sensitive_input_withheld": false,
+      "status": "manual_review"
+    },
+    {
+      "actions": [
+        "delete"
+      ],
+      "address": "aws_s3_bucket_public_access_block.synthetic",
+      "after_matches_rule": false,
+      "after_unknown": false,
+      "before_matches_rule": false,
+      "message": "Bucket public-access safeguard disabled",
+      "rule": "S3001",
+      "sensitive_input_withheld": false,
+      "status": "control_removal_review"
+    },
+    {
+      "actions": [
+        "update"
+      ],
+      "address": "aws_security_group.synthetic",
+      "after_matches_rule": true,
+      "after_unknown": false,
+      "before_matches_rule": false,
+      "message": "Internet-wide SSH/RDP ingress",
+      "rule": "NET001",
+      "sensitive_input_withheld": false,
+      "status": "introduced"
+    }
+  ],
+  "scope": "Plan evidence only; no deployment, reachability or effective-permission verification.",
+  "skipped": [
+    {
+      "address": "aws_lambda_function.synthetic",
+      "reason": "resource/provider outside this tool's rule coverage"
+    }
+  ],
+  "summary": {
+    "control_removal_review": 1,
+    "introduced": 1,
+    "manual_review": 1,
+    "resolved_by_plan": 1
+  }
+}

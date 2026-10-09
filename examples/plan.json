@@ -1,0 +1,109 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.0",
+  "complete": true,
+  "planned_values": {},
+  "resource_changes": [
+    {
+      "address": "aws_security_group.synthetic",
+      "type": "aws_security_group",
+      "mode": "managed",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "before": {
+          "ingress": [
+            {
+              "cidr_blocks": [
+                "10.0.0.0/8"
+              ],
+              "ipv6_cidr_blocks": [],
+              "protocol": "tcp",
+              "from_port": 22,
+              "to_port": 22
+            }
+          ]
+        },
+        "after": {
+          "ingress": [
+            {
+              "cidr_blocks": [
+                "0.0.0.0/0"
+              ],
+              "ipv6_cidr_blocks": [],
+              "protocol": "tcp",
+              "from_port": 22,
+              "to_port": 22
+            }
+          ]
+        },
+        "actions": [
+          "update"
+        ]
+      }
+    },
+    {
+      "address": "aws_cloudtrail.synthetic",
+      "type": "aws_cloudtrail",
+      "mode": "managed",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "before": {
+          "enable_logging": false
+        },
+        "after": {
+          "enable_logging": true
+        },
+        "actions": [
+          "update"
+        ]
+      }
+    },
+    {
+      "address": "aws_s3_bucket_public_access_block.synthetic",
+      "type": "aws_s3_bucket_public_access_block",
+      "mode": "managed",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "before": {
+          "block_public_acls": true,
+          "block_public_policy": true,
+          "ignore_public_acls": true,
+          "restrict_public_buckets": true
+        },
+        "after": null,
+        "actions": [
+          "delete"
+        ]
+      }
+    },
+    {
+      "address": "aws_iam_policy.synthetic",
+      "type": "aws_iam_policy",
+      "mode": "managed",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "before": null,
+        "after": {},
+        "actions": [
+          "create"
+        ],
+        "after_unknown": {
+          "policy": true
+        }
+      }
+    },
+    {
+      "address": "aws_lambda_function.synthetic",
+      "type": "aws_lambda_function",
+      "mode": "managed",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "before": null,
+        "after": {},
+        "actions": [
+          "create"
+        ]
+      }
+    }
+  ]
+}
